@@ -9,7 +9,7 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String hello() {
-        return "Welcome to DevOps CI/CD Project!";
+        return "Welcome to DevOps CI/CD Project - Automatic CI Test!";
     }
 
     @GetMapping("/info")
