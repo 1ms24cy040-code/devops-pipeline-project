@@ -14,7 +14,7 @@ public class HelloController {
 
     @GetMapping("/info")
     public String info() {
-        return "Application: DevOps REST API | Version: 1.0";
+        return "Application: DevOps REST API | Version: 1.1";
     }
 
     @GetMapping("/status")
