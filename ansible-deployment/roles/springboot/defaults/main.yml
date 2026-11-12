@@ -1,0 +1,6 @@
+app_name: devopsapp
+app_version: "0.0.1-SNAPSHOT"
+app_jar: "devopsapp-0.0.1-SNAPSHOT.jar"
+app_port: 8081
+app_directory: /opt/devopsapp
+app_user: sachin

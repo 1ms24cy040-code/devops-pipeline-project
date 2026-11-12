@@ -1,0 +1,13 @@
+[Unit]
+Description=Spring Boot DevOps Application
+After=network.target
+
+[Service]
+User={{ app_user }}
+WorkingDirectory={{ app_directory }}
+ExecStart=/usr/bin/java -jar {{ app_directory }}/{{ app_jar }} --server.port={{ app_port }}
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

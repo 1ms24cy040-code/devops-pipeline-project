@@ -1,0 +1,9 @@
+---
+- name: Reload systemd
+  systemd:
+    daemon_reload: true
+
+- name: Restart Spring Boot application
+  systemd:
+    name: "{{ app_name }}"
+    state: restarted

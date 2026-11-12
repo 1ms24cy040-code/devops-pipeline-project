@@ -1,0 +1,7 @@
+---
+- name: Deploy Spring Boot Application
+  hosts: local
+  become: true
+
+  roles:
+    - springboot

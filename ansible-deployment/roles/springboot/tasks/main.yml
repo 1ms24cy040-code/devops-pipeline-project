@@ -1,0 +1,31 @@
+---
+- name: Create application directory
+  file:
+    path: "{{ app_directory }}"
+    state: directory
+    owner: "{{ app_user }}"
+    mode: '0755'
+
+- name: Copy Spring Boot application JAR
+  copy:
+    src: "{{ playbook_dir }}/files/{{ app_jar }}"
+    dest: "{{ app_directory }}/{{ app_jar }}"
+    owner: "{{ app_user }}"
+    mode: '0644'
+  notify: Restart Spring Boot application
+
+- name: Create systemd service
+  template:
+    src: springboot.service.j2
+    dest: /etc/systemd/system/{{ app_name }}.service
+    mode: '0644'
+  notify:
+    - Reload systemd
+    - Restart Spring Boot application
+
+- name: Ensure Spring Boot application is enabled and started
+  systemd:
+    name: "{{ app_name }}"
+    enabled: true
+    state: started
+    daemon_reload: true
